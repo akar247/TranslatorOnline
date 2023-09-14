@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Language Translation</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #effbf5; /* Light green background color */
+            color: #333; /* Dark gray text color */
+        }
+        h1 {
+            color: #00796b; /* Teal header color */
+        }
+        form {
+            max-width: 400px;
+            margin: 0 auto;
+            padding: 20px;
+            background-color: #fff; /* White form background color */
+            border: 1px solid #ccc;
+            border-radius: 5px;
+        }
+        .form-group {
+            margin-bottom: 20px;
+        }
+        label {
+            display: block;
+            font-weight: bold;
+            margin-bottom: 5px;
+        }
+        select, textarea {
+            width: 100%;
+            padding: 8px;
+            border: 1px solid #ccc;
+            border-radius: 5px;
+            resize: vertical;
+        }
+        .btn-container {
+            display: flex;
+            justify-content: center;
+        }
+        .translate-btn {
+            background-color: #00796b; /* Teal button background color */
+            color: #fff; /* White button text color */
+            border: none;
+            padding: 10px 20px;
+            font-weight: bold;
+            border-radius: 5px;
+            cursor: pointer;
+        }
+        .translate-btn:hover {
+            background-color: #006d5f; /* Darker teal on hover */
+        }
+    </style>
+</head>
+<body>
+    <h1>Language Translation</h1>
+    <form method="post">
+        {% csrf_token %}
+        <div class="form-group">
+            <label for="id_original_language">Original Language</label>
+            {{ form.original_language }}
+        </div>
+        <div class="form-group">
+            <label for="id_target_language">Target Language</label>
+            {{ form.target_language }}
+        </div>
+        <div class="form-group">
+            <label for="id_input_text">Input Text</label>
+            {{ form.input_text }}
+        </div>
+        <div class="btn-container">
+            <button type="submit" class="translate-btn">Translate</button>
+        </div>
+    </form>
+</body>
+</html>
